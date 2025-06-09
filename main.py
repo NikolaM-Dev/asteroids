@@ -4,6 +4,10 @@ from constants import *
 
 def main():
     pygame.init()
+
+    clock = pygame.time.Clock()
+    dt = 0  # Delta Time in seconds
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     while True:
@@ -13,6 +17,7 @@ def main():
 
         screen.fill("black")
 
+        dt = clock.tick(FPS) / SECOND_IN_MS
         pygame.display.flip()
 
 
