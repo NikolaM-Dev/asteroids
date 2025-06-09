@@ -23,6 +23,8 @@ def main():
         player.draw(screen)
 
         dt = clock.tick(FPS) / SECOND_IN_MS
+        player.update(dt)
+
         pygame.display.flip()
 
 
