@@ -39,13 +39,18 @@ def main():
 
         updatable.update(dt)
 
-        for group in drawable:
-            group.draw(screen)
+        for _drawable in drawable:
+            _drawable.draw(screen)
 
         for asteroid in asteroids:
             if asteroid.are_colliding(player):
                 print("Game over!")
                 sys.exit()
+
+            for shot in shots:
+                if shot.are_colliding(asteroid):
+                    shot.kill()
+                    asteroid.kill()
 
         pygame.display.flip()
         dt = clock.tick(FPS) / SECOND_IN_MS
